@@ -1,9 +1,15 @@
-#!/usr/bin/python3
+from brownie import Metamutt, config, network
+from scripts.helpful_scripts import get_account
 
-# Metamutt represents the contract name
-from brownie import Metamutt, accounts
+
+def deploy_metamutt():
+    account = get_account()
+
+    metamutt = Metamutt.deploy({"from": account},
+                               publish_source=config["networks"][network.show_active()].get("verify", False))
+    print(f"Contract deployed to {metamutt.address}")
+    return metamutt
 
 
 def main():
-    account = accounts.load("testaccount")
-    return Metamutt.deploy({'from': account})
+    deploy_metamutt()
