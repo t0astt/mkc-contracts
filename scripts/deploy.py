@@ -1,4 +1,4 @@
-from brownie import Metamutt, config, network
+from brownie import MetamuttKennelClub, config, network
 from scripts.helpful_scripts import get_account
 
 
