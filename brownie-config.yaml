@@ -1,0 +1,26 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.8.2
+compiler:
+  solc:
+    remappings:
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.2'
+dotenv: .env
+networks:
+  default: development
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0xaEA2808407B7319A31A383B6F8B60f04BCa23cE2'
+    verify: False
+    from_key: ${MAINNET_FORK_PRIVATE_KEY}
+  sepolia:
+    eth_usd_price_feed: '0x694AA1769357215DE4FAC081bf1f309aDC325306'
+    verify: True
+    from_key: ${SEPOLIA_PRIVATE_KEY}
+  goerli:
+    eth_usd_price_feed: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
+    verify: True
+    from_key: ${GOERLI_PRIVATE_KEY}
+  ganache-local:
+    verify: False
+    from_key: ${GANACHE_UI_PRIVATE_KEY}
+  development:
+    verify: False

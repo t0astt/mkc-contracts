@@ -3,3 +3,6 @@ compile: clean
 
 clean:
 	rm -rf build/
+
+deploy_local:
+	brownie run scripts/deploy.py
